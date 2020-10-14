@@ -25,18 +25,24 @@ public class Main {
         System.out.print("Entrer le pseudo du joueur 2 : ");
         String pseudo2 = psd2.nextLine() ;
 
+        //Création des pions joueurs
+        int positionJoueur1X = 5;
+        int positionJoueur1Y = 5;
+        int positionJoueur2X = 4;
+        int positionJoueur2Y = 5;
 
-        //affichage du plateau de jeu
+        //affichage du plateau de jeu et des pions joueurs
         //System.out.println("-----------------------") ;
 
         for ( i = 0; i < ligne; i++ ) {
             for ( j = 0; j < colonne; j++ )  {
                 plateauDeJeu[i][j] = '□' ;
-                System.out.print(plateauDeJeu[i][j] ) ;
+                PionJoueur.pionJoueur1(positionJoueur1X,positionJoueur1Y,plateauDeJeu);
+                PionJoueur.pionJoueur2(positionJoueur2X,positionJoueur2Y,plateauDeJeu);
+                System.out.print(plateauDeJeu[i][j] + " ") ;
             }
             System.out.println() ;
             //System.out.println("-----------------------") ;
-
         }
     }
 }
