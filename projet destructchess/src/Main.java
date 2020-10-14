@@ -5,13 +5,9 @@ public class Main
 
     public static void main(String[] args) {
         //initialisation des variables local
-        Scanner operateurA = new Scanner(System.in);
-        int operateur1; //choix du joueur 1
-        int optionJoue = 1;
-        int optionRegles = 2;
-
-
-
+        Scanner commande = new Scanner(System.in);
+        int choixJoueur; //choix du joueur 1
+        //choixJoueur = commande.nextInt();
 
 
 
@@ -21,36 +17,29 @@ public class Main
         System.out.println("Bonjour et bienvenu dans insert un nom, choisit un numéro pour navigué");
 
         System.out.println(1 +" Joué");
+        System.out.println( 2 +" Règles");
+        System.out.println(3 +" Quitté" );
 
-
-
-
-
-        System.out.println( 2 +" Régles");
-
-
-
-        // Choix pour stopper le programme
-        System.out.println(3 +" Quitté");{
-            if(operateurA.hasNextInt(3)){
-                System.exit(3);
-            }
+        while ((!commande.hasNextInt() && commande.hasNextInt())){
+            System.out.println("C'est 1 2 ou 3");
+            commande.next();
         }
 
-
-
-        while (!operateurA.hasNextInt())
-        {
-            System.out.println("J'ai demandé des chiffres..");
-            operateurA.next();
+        if (commande.hasNextInt(3)) {
+            System.exit(3);
         }
 
+        else if (commande.hasNextInt(2)){
 
+        }
 
+        else if (commande.hasNextInt(1)){
 
-        operateur1 = operateurA.nextInt();
-
-
+        }
+        else{
+            System.out.println("C'est 1 2 ou 3");
+            commande.next();
+        }
 
 
     }
