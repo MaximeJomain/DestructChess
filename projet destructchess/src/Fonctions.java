@@ -1,2 +1,4 @@
-public class Fonctions {
+public class Fonctions
+{
+
 }

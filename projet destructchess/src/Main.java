@@ -12,10 +12,6 @@ public class Main {
         Random rand = new Random();
         int joueurQuiCommence = rand.nextInt(2) ;;
 
-
-
-
-
         //initialisation du plateau de jeu
         int colonne = 11 ;
         int ligne = 10 ;
@@ -30,7 +26,6 @@ public class Main {
         String pseudo2 = psd2.nextLine() ;
 
 
-
         //affichage du plateau de jeu
         //System.out.println("-----------------------") ;
 
@@ -43,25 +38,5 @@ public class Main {
             //System.out.println("-----------------------") ;
 
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }
-
-
-
-
-
-
-
