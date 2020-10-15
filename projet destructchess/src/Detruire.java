@@ -14,7 +14,7 @@ public class Detruire
     {
 
         //On demande à l'utilisateur une ligne à détruire, en vérifiant qu'elle soit valable, et que ce soit bien des chiffres de donnés
-        System.out.println("Entrez une numéro de ligne pour la case à détruire (entre 0 et 10");
+        System.out.println("Entrez une numéro de ligne pour la case à détruire (entre 0 et 10)");
 
         Scanner foo = new Scanner(System.in);
         int ligneDetruite = -1;
@@ -27,7 +27,7 @@ public class Detruire
                 System.out.println("Nope, c'est pas un chiffre");
             }
             ligneDetruite = foo.nextInt();
-            System.out.println("Mauvais chiffre mon cher");
+
         }
         return ligneDetruite;
     }

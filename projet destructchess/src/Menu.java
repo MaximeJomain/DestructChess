@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Menu {
     boolean quitter; //Toujours faux (False)
 
-    public static void main(String[] args) {
+    public static void main() {
         Menu menu = new Menu();
         menu.demarrerMenu();
 
@@ -23,15 +23,16 @@ public class Menu {
     private void bannierMenu() {
         System.out.println("+-----------------------------------+");
         System.out.println("|           Bienvenu dans           |");
-        System.out.println("|           EL FAMOSO JEU           |");
+        System.out.println("|           LORD OF CHESS           |");
         System.out.println("+-----------------------------------+");
     }
 
     //Le menu
     private void impriMenu() {
         System.out.println("\nVeuillez faire un choix");
-        System.out.println("2) Jouer");
-        System.out.println("1) Règles");
+        System.out.println("3) Jouer");
+        System.out.println("2) Règles");
+        System.out.println("1) Scores");
         System.out.println("0) Quitter");
     }
 
@@ -39,7 +40,7 @@ public class Menu {
     private int entreeUtilisateur(){
         Scanner utilisateursc = new Scanner(System.in);
         int choix = -1;
-        while (choix < 0 || choix > 2){
+        while (choix < 0 || choix > 3){
             try{
                 System.out.print("\nEntrez votre choix:");
                 choix = Integer.parseInt(utilisateursc.nextLine()); // tranforme un string en int
@@ -47,8 +48,8 @@ public class Menu {
             catch (NumberFormatException e){
                 System.out.println("Sélection non valable, veuillez réessayer");
             }
-            if (choix < 0 || choix > 2) {
-                System.out.println("Autodestruction dans ... non je déconne, ta pas compris quoi dans 0,1 ou 2 ?");
+            if (choix < 0 || choix > 3) {
+                System.out.println("Autodestruction dans ... non je déconne, ta pas compris quoi dans 0, 1, 2 ou 3 ?");
             }
         }
         return choix;
@@ -61,11 +62,26 @@ public class Menu {
                 quitter = true;
                 System.out.println("Merci d'avoir joué");
                 break;
-            case 1:
+            case 2: Règles.main();
                 //règles
                 break;
-            case 2:
-                //jouer
+            case 3://jouer
+                fonctionsPourJeu.demandePseudoJoueur1();
+                fonctionsPourJeu.demandePseudoJoueur2();
+
+                while (variablesGlobales.quitterLeJeu == false) {
+
+
+                fonctionsPourJeu.afficherPlateau(variablesGlobales.xJoueur1, variablesGlobales.yJoueur1, variablesGlobales.xJoueur2, variablesGlobales.yJoueur2);
+
+                Deplacement.deplacerJoueur();
+                Detruire.detruire();
+            }
+
+
+                break;
+            case 1: Scores.main();
+
                 break;
             default:
                 System.out.println("une erreur est survenue");
