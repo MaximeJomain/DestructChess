@@ -5,8 +5,14 @@ public class Detruire
 {
     //On prends la ligne et la colonne que le joueur souhaite détruire
 
+    /** Fonction Destruction
+     * La fonction prends en premier lieux deux input de la part du joueur, un pour la colonne et un pour la ligne
+     * @return Les input des joueurs, et sort la case détruite.
+     */
+
     public static int ligneADetruire()
     {
+
         //On demande à l'utilisateur une ligne à détruire, en vérifiant qu'elle soit valable, et que ce soit bien des chiffres de donnés
         System.out.println("Entrez une numéro de ligne pour la case à détruire (entre 0 et 10");
 
