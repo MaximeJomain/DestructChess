@@ -8,22 +8,7 @@ public class Main {
 
         Menu.main() ;
 
-        //randomizer du joueur qui commence
 
-
-
-
-
-        //demande des pseudos des deux joueurs
-
-
-
-        //affichage du plateau de jeu
-
-
-
-
-            //fonctionsPourJeu.clearScreen();
         }
     }
 

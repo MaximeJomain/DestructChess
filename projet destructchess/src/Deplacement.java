@@ -11,55 +11,62 @@ public class Deplacement {
         int boucle = 1;
 
         while (boucle == 1) {
-            char mouvement = inputDeplacement.next().charAt(0);
+            String mouvement = inputDeplacement.next() ;
 
 
-                if (variablesGlobales.joueurQuiCommence == 0) {
+                if (variablesGlobales.joueurQuiCommence == 1) {
+                    variablesGlobales.plateauDeJeu[variablesGlobales.yJoueur1][variablesGlobales.xJoueur1] = fonctionsPourJeu.ANSI_WHITE + " ■ " + fonctionsPourJeu.ANSI_RESET;
 
-                    if (mouvement == 'z') {
-                        variablesGlobales.yJoueur1--;
-                        variablesGlobales.joueurQuiCommence++ ;
-                        boucle = 0;
-
-                    } else if (mouvement == 'q') {
-                        variablesGlobales.xJoueur1--;
-                        variablesGlobales.joueurQuiCommence++ ;
-                        boucle = 0;
-
-                    } else if (mouvement == 's') {
-                        variablesGlobales.yJoueur1++;
-                        variablesGlobales.joueurQuiCommence++ ;
-                        boucle = 0;
-
-                    } else if (mouvement == 'd') {
-                        variablesGlobales.xJoueur1++;
-                        variablesGlobales.joueurQuiCommence++ ;
-                        boucle = 0;
+                    switch (mouvement) {
+                        case "z", "Z" -> {
+                            variablesGlobales.yJoueur1--;
+                            variablesGlobales.joueurQuiCommence++;
+                            boucle = 0;
+                        }
+                        case "q", "Q" -> {
+                            variablesGlobales.xJoueur1--;
+                            variablesGlobales.joueurQuiCommence++;
+                            boucle = 0;
+                        }
+                        case "s", "S" -> {
+                            variablesGlobales.yJoueur1++;
+                            variablesGlobales.joueurQuiCommence++;
+                            boucle = 0;
+                        }
+                        case "d", "D" -> {
+                            variablesGlobales.xJoueur1++;
+                            variablesGlobales.joueurQuiCommence++;
+                            boucle = 0;
+                        }
+                        case "Quitter", "quitter" -> variablesGlobales.quitterLeJeu = true ;
                     }
                 }
 
-                else if (variablesGlobales.joueurQuiCommence == 1) {
+                else if (variablesGlobales.joueurQuiCommence == 2) {
+                    variablesGlobales.plateauDeJeu[variablesGlobales.yJoueur2][variablesGlobales.xJoueur2] = fonctionsPourJeu.ANSI_WHITE + " ■ " + fonctionsPourJeu.ANSI_RESET;
 
-                    if (mouvement == 'z') {
-                        variablesGlobales.yJoueur2--;
-                        variablesGlobales.joueurQuiCommence = 0 ;
-                        boucle = 0;
-
-                    } else if (mouvement == 'q') {
-                        variablesGlobales.xJoueur2--;
-                        variablesGlobales.joueurQuiCommence = 0 ;
-                        boucle = 0;
-
-                    } else if (mouvement == 's') {
-                        variablesGlobales.yJoueur2++;
-                        variablesGlobales.joueurQuiCommence = 0 ;
-                        boucle = 0;
-
-                    } else if (mouvement == 'd') {
-                        variablesGlobales.xJoueur2++;
-                        variablesGlobales.joueurQuiCommence = 0 ;
-                        boucle = 0;
-
+                    switch (mouvement) {
+                        case "z", "Z" -> {
+                            variablesGlobales.yJoueur2--;
+                            variablesGlobales.joueurQuiCommence = 1;
+                            boucle = 0;
+                        }
+                        case "q", "Q" -> {
+                            variablesGlobales.xJoueur2--;
+                            variablesGlobales.joueurQuiCommence = 1;
+                            boucle = 0;
+                        }
+                        case "s", "S" -> {
+                            variablesGlobales.yJoueur2++;
+                            variablesGlobales.joueurQuiCommence = 1;
+                            boucle = 0;
+                        }
+                        case "d", "D" -> {
+                            variablesGlobales.xJoueur2++;
+                            variablesGlobales.joueurQuiCommence = 1;
+                            boucle = 0;
+                        }
+                        case "Quitter", "quitter" -> variablesGlobales.quitterLeJeu = true ;
                     }
                 }
 

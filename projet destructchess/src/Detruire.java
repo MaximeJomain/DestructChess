@@ -7,6 +7,8 @@ public class Detruire
 
     /** Fonction Destruction
      * La fonction prends en premier lieux deux input de la part du joueur, un pour la colonne et un pour la ligne
+     * Pour prendre les input du joueur, on utilise la fonction Scanner, et afin de s'assurer de la bonne entrée de l'utilisateur
+     * Deux boucles while l'une dans l'autre, vérifient que ce soit bien un int 0 et 9 (ou 10), et non autre chose.
      * @return Les input des joueurs, et sort la case détruite.
      */
 
@@ -56,9 +58,11 @@ public class Detruire
     //Et enfin on détruit la case en question
     public static void detruire()
     {
-        int ligneDest = ligneADetruire();
-        int colonneDest = colonneADetruire();
 
-        System.out.println("Vous avez détruit la case " + ligneDest + " , " + colonneDest);
+        variablesGlobales.ligneCaseDetruire = ligneADetruire() ;
+        variablesGlobales.colonneCaseDetruite = colonneADetruire() ;
+        variablesGlobales.plateauDeJeu[variablesGlobales.ligneCaseDetruire][variablesGlobales.colonneCaseDetruite] = "   ";
+
+        System.out.println("Vous avez détruit la case " + variablesGlobales.ligneCaseDetruire + " , " + variablesGlobales.colonneCaseDetruite);
     }
 }

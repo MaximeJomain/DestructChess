@@ -9,6 +9,9 @@ public class Menu {
 
     }
 
+    /**
+     * permet de quitté et appel les fonctions de menu et d'entrée utilisateur
+     */
     //Le lancement du menu et récuperation des info
     public void demarrerMenu(){
         bannierMenu();
@@ -19,6 +22,9 @@ public class Menu {
         }
     }
 
+    /**
+     * permet d'imprimer la bannier a l'utilisateur
+     */
     //c'est une bannier sympas
     private void bannierMenu() {
         System.out.println("+-----------------------------------+");
@@ -27,6 +33,9 @@ public class Menu {
         System.out.println("+-----------------------------------+");
     }
 
+    /**
+     * permet d'imprimer la liste des choix a l'utilisateur
+     */
     //Le menu
     private void impriMenu() {
         System.out.println("\nVeuillez faire un choix");
@@ -36,6 +45,17 @@ public class Menu {
         System.out.println("0) Quitter");
     }
 
+    /**
+     * On n'a initier un scanner utilisateur pour récupéré les valeurs entré par l'utilisateur,
+     * et pouvoir navigué dans le menu
+     * nous avons aussi intier le choix à -1 pour éviter tout conflit avec le menu,
+     * et pouvoir comparé les entres utilisateur et l'empercher de sortir des valeurs initial du menu.
+     * try nous permet de verifier l'entré utilisateur grace a l Integer.parseInt
+     * catch nous permet de d'empêcher les entrées de caracteres et nous donné un message d'erreur
+     * if à lui aussi a un rôle de bloquer mais pour mais pour les chiffres
+     *
+     * @return nous rend notre entrée utilisateur dans notre boucle qui recompare avec le try
+     */
     //Récuperation des entrées utilisateur
     private int entreeUtilisateur(){
         Scanner utilisateursc = new Scanner(System.in);
@@ -55,6 +75,15 @@ public class Menu {
         return choix;
     }
 
+    /**
+     * on utilise un switch pour pouvoir établir plusieurs choix qui vont correspondre avec le menu
+     * case 0 : nous permet de changer la valeur du boolean qui permet de fermer le logiciel en plus d'écrire un petit message
+     * case 1 : appel la fonction scores
+     * case 2 : appel la fonction règles
+     * case 3 : appel les fonctions pour joué
+     * default  verifié en cas d'erreur les case
+     * @param choix permet de choisir la case correspondante a l'entrée associé
+     */
     //Attribution des taches
     private void effectuerUneTache(int choix){
         switch (choix){
@@ -66,17 +95,7 @@ public class Menu {
                 //règles
                 break;
             case 3://jouer
-                fonctionsPourJeu.demandePseudoJoueur1();
-                fonctionsPourJeu.demandePseudoJoueur2();
-
-                while (variablesGlobales.quitterLeJeu == false) {
-
-
-                fonctionsPourJeu.afficherPlateau(variablesGlobales.xJoueur1, variablesGlobales.yJoueur1, variablesGlobales.xJoueur2, variablesGlobales.yJoueur2);
-
-                Deplacement.deplacerJoueur();
-                Detruire.detruire();
-            }
+                Jouer.main();
 
 
                 break;
