@@ -7,56 +7,42 @@ public class Detruire
 
     public static int ligneADetruire()
     {
-        //Un scanner pour connaitre l'entrée du joueur
-        System.out.println("Rentrez le numéro de la ligne de la case que vous souhaitez détruire (entre 0 et 10) : ");
-        Scanner ligneADetruire = new Scanner(System.in);
-        int ligneDetruite;
+        //On demande à l'utilisateur une ligne à détruire, en vérifiant qu'elle soit valable, et que ce soit bien des chiffres de donnés
+        System.out.println("Entrez une numéro de ligne pour la case à détruire (entre 0 et 10");
 
-        //Verification de l'entrée de l'utilisateur, afin que ce soit bien un chiffre qui soit proposé
-        while (!ligneADetruire.hasNextInt())
-        {
-            System.out.println("Nope, ça ne sera pas pris en compte");
-            ligneADetruire.next();
-        }
-        ligneDetruite = ligneADetruire.nextInt();
+        Scanner foo = new Scanner(System.in);
+        int ligneDetruite = -1;
 
-        //Et que ce chiffre est compris dans notre matrice
-        if (ligneDetruite >= 11 || ligneDetruite < 0)
+        while(ligneDetruite > 10 || ligneDetruite < 0)
         {
-            System.out.println("Cette case n'existe même pas!");
-            ligneDetruite = ligneADetruire.nextInt();
-        }
-        else
-        {
-            ligneADetruire.next();
+            while(!foo.hasNextInt())
+            {
+                foo.next();
+                System.out.println("Nope, c'est pas un chiffre");
+            }
+            ligneDetruite = foo.nextInt();
+            System.out.println("Mauvais chiffre mon cher");
         }
         return ligneDetruite;
     }
 
     public static int colonneADetruire()
     {
-        //Un scanner pour connaitre l'entrée du joueur
-        System.out.println("Rentrez le numéro de la colonne de la case que vous souhaitez détruire (entre 0 et 10 ) : ");
-        Scanner colonneADetruire = new Scanner(System.in);
-        int colonneDetruite;
-
-        //Verification de l'entrée de l'utilisateur, afin que ce soit bien un chiffre qui soit proposé
-        while (!colonneADetruire.hasNextInt())
+        //On demande à l'utilisateur une colonne à détruire, en vérifiant qu'elle soit valable, et que ce soit bien des chiffres de donnés
+        System.out.println("Entrez un numéro entre 0 et 9 pour sélectionner la colonne à détruire");
+        
+        Scanner foo = new Scanner(System.in);
+        int colonneDetruite = -1;
+        
+        while(colonneDetruite > 9 || colonneDetruite < 0) 
         {
-            System.out.println("J'ai demandé un chiffre..");
-            colonneADetruire.next();
-        }
-        colonneDetruite = colonneADetruire.nextInt();
-
-        //Et que ce chiffre est compris dans notre matrice
-        if (colonneDetruite > 10 || colonneDetruite <= 0)
-        {
-            System.out.println("Cette case n'existe même pas!");
-            colonneDetruite = colonneADetruire.nextInt();
-        }
-        else
-        {
-            colonneADetruire.next();
+            while(!foo.hasNextInt())
+            {
+                foo.next();
+                System.out.println("Nope, c'est pas un chiffre");
+            }
+            colonneDetruite = foo.nextInt();
+            System.out.println("Par contre la t'abuses.");
         }
         return colonneDetruite;
     }
