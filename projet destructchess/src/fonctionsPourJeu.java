@@ -51,6 +51,43 @@ public class fonctionsPourJeu {
             //System.out.println("-----------------------") ;
         }
     }
+
+    public static boolean checkJoueurMort (int xJoueur , int yJoueur ) {
+        if (
+        variablesGlobales.plateauDeJeu[yJoueur - 1][xJoueur] == fonctionsPourJeu.ANSI_WHITE + " ■ " + fonctionsPourJeu.ANSI_RESET
+        || variablesGlobales.plateauDeJeu[yJoueur + 1][xJoueur] == fonctionsPourJeu.ANSI_WHITE + " ■ " + fonctionsPourJeu.ANSI_RESET
+        || variablesGlobales.plateauDeJeu[yJoueur][xJoueur - 1] == fonctionsPourJeu.ANSI_WHITE + " ■ " + fonctionsPourJeu.ANSI_RESET
+        || variablesGlobales.plateauDeJeu[yJoueur][xJoueur + 1] == fonctionsPourJeu.ANSI_WHITE + " ■ " + fonctionsPourJeu.ANSI_RESET
+        ) {
+            return false ;
+        }
+        else {
+            System.out.println("Le joueur ne peut plus se déplacer") ;
+            return true ;
+        }
+    }
+
+    public static boolean finDePartie ( int xJoueur1 , int yJoueur1, int xJoueur2 , int yJoueur2 ) {
+        boolean joueur1Mort = checkJoueurMort(xJoueur1, yJoueur1);
+        boolean joueur2Mort = checkJoueurMort(xJoueur2, yJoueur2);
+
+        if (joueur1Mort == true) {
+            System.out.println("Le joueur 2 gagne !");
+            return  true ;
+        }
+
+        if (joueur2Mort == true) {
+            System.out.println("Le joueur 1 gagne !");
+            return true ;
+        }
+
+        else {
+            return false ;
+        }
+    }
+
+
+
 }
 
 
