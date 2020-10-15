@@ -11,7 +11,7 @@ public class PeuxBouger
         int caseBas = ligneJoueur-1;
 
         //Verification des cases autour du joueur
-        if (caseBas)
+        //if (caseBas)
 
         //Renvoie d'une valeure vraie si le joueur peut bouger, ou fausse s'il ne peut pas
         return peuxBouger;
